@@ -22,8 +22,8 @@ function BaseNavigation() {
     <Tab.Navigator
       initialRouteName="Home"
       activeColor="#3D7DFF"
-      inactiveColor="#fff"
-      barStyle={{ backgroundColor: "#111" }}
+      inactiveColor="#ccc"
+      barStyle={{ backgroundColor: "#eee" }}
     >
       <Tab.Screen
         name="Home"

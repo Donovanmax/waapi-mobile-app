@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 
 const Home = () => {
   return (
-    <View style={{ flex: 1, marginTop:StatusBar.currentHeight + 10}}>
+    <View style={{ flex: 1, marginTop:StatusBar.currentHeight, backgroundColor:"white"}}>
       <View style={{alignItems: 'center'}}>
         <Sidebar />
       </View>
