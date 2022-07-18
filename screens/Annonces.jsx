@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   Image,
   ScrollView,
   Dimensions,
@@ -18,19 +17,37 @@ const Annonces = () => {
         {annes.map((annonce, id) => {
           return (
             <View key={id} style={styles.slider}>
-              <View>
+              <View
+                style={{
+                  position: "absolute",
+                  zIndex: 20,
+
+                  backgroundColor: "#fff",
+                  width: "100%",
+
+                  maxWidth: width 
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    fontStyle: "italic"
+                  }}
+                >
+                  {annonce.title}
+                </Text>
+                <Text style={{ fontSize: 11 }}>{annonce.description}</Text>
+              </View>
+              <View style={{ width: width, height: height }}>
                 <Image
                   source={{ uri: annonce.link }}
                   style={{
-                    resizeMode: "contain",
+                    resizeMode: "cover",
                     height: height,
                     width: width
                   }}
                 />
-              </View>
-              <View style={{position:"absolute", zIndex:15, top:25, left:15, maxWidth:width/1.2}}>
-                <Text style={{fontSize:25, fontWeight:"bold", fontStyle:"italic"}}>{annonce.title}</Text>
-                <Text style={{fontSize:11}}>{annonce.description}</Text>
               </View>
             </View>
           );
@@ -41,7 +58,7 @@ const Annonces = () => {
 };
 
 const styles = StyleSheet.create({
-  slider: {}
+  slider: { width: "100%" }
 });
 
 export default Annonces;
