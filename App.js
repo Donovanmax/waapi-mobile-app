@@ -1,5 +1,9 @@
-import RootNavigation from "./Navigation";
+import RootNavigation, { RootNavigation2 } from "./Navigation";
 
 export default function App() {
-  return <RootNavigation />;
+  return (
+    <>
+  <RootNavigation />
+
+  </>)
 }

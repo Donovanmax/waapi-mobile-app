@@ -1,21 +1,40 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 
 const Categories = () => {
+  const categories = [
+  "Restaurants" ,
+  "Hôtels" ,
+  "Bars & Clubs" ,
+  "Immobilier" 
+  ];
+  const [categorie, setCategorie] = React.useState(0);
+
   return (
-    <View style={{marginTop:10, justifyContent:"center", alignItems:"center", flexDirection: "row",}}>
-      <View style={styles.slider}>
-        <Text style={styles.Text}>Categories</Text>
-      </View>
-      <View style={styles.slider}>
-        <Text style={styles.Text}>Categories</Text>
-      </View>
-      <View style={styles.slider}>
-        <Text style={styles.Text}>Categories</Text>
-      </View>
-      <View style={styles.slider}>
-        <Text style={styles.Text}>Categories</Text>
-      </View>
+    <View
+      style={{
+        marginTop: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row"
+      }}
+    >
+      {categories.map((cat, id) => {
+        return (
+          <TouchableOpacity
+          onPress={() => {setCategorie(id)}}
+            key={id}
+            style={[
+              styles.slider,
+              {backgroundColor: categorie === id ? "#3D7DFF" : "#ccc"}
+      ]}
+          >
+            <Text key={id} style={styles.Text}>
+              {cat}
+            </Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 };
@@ -27,15 +46,16 @@ const styles = StyleSheet.create({
     position: "relative",
     flexDirection: "row",
     marginRight: 8,
-    height: 38,
-    borderRadius:30,
-    padding:5,
+    height: 28,
+    width: 80,
+    borderRadius: 15,
+    padding: 5,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor:"#3D7DFF"
+    alignItems: "center"
   },
   Text: {
     color: "#fff",
-    fontSize:10
+    fontSize: 11,
+    fontWeight: "bold"
   }
 });

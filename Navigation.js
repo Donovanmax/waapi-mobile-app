@@ -1,19 +1,22 @@
-import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Home from "./screens/Home";
+
 import Annonces from "./screens/Annonces";
 import Songi from "./screens/Songi";
+import Notif from "./screens/Notif";
 
-const Stack = createStackNavigator();
+
 const Tab = createMaterialBottomTabNavigator();
 
 export default function RootNavigation() {
   return (
-    <NavigationContainer>
-      <BaseNavigation />
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <BaseNavigation />
+      </NavigationContainer>
+    </>
   );
 }
 
@@ -23,7 +26,7 @@ function BaseNavigation() {
       initialRouteName="Home"
       activeColor="#3D7DFF"
       inactiveColor="#ccc"
-      barStyle={{ backgroundColor: "#eee" }}
+      barStyle={{ backgroundColor: "white" }}
     >
       <Tab.Screen
         name="Home"
@@ -35,20 +38,44 @@ function BaseNavigation() {
           )
         }}
       />
-      <Tab.Screen name="Annonces" component={Annonces} 
-      options={{
-        tabBarLabel: "Annonces",
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="swap-vertical" color={color} size={26} />
-        )
-      }}/>
-      <Tab.Screen name="Songi-Songi" component={Songi}
-      options={{
-        tabBarLabel: "Songi-Songi",
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="account-voice" color={color} size={26} />
-        )
-      }} />
+      <Tab.Screen
+        name="Annonces"
+        component={Annonces}
+        options={{
+          tabBarLabel: "Annonces",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="swap-vertical-circle"
+              color={color}
+              size={26}
+            />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="Songi-Songi"
+        component={Songi}
+        options={{
+          tabBarLabel: "Songi-Songi",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="account-voice"
+              color={color}
+              size={26}
+            />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="Notifications"
+        component={Notif}
+        options={{
+          tabBarLabel: "Notifications",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          )
+        }}
+      />
     </Tab.Navigator>
   );
 }

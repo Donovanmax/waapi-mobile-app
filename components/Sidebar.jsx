@@ -7,7 +7,6 @@ const Sidebar = () => {
     <View>
     <View style={styles.container}>
      <TextInput style={styles.input} placeholder="Rechercher sur Waapi" />
-     <Image source={require("../assets/images/max.jpg")} style={styles.image} />
     </View>
 
     <Categories />
@@ -20,24 +19,25 @@ export default Sidebar
 
 const styles = StyleSheet.create({
     container: {
-        height: 50,
+        height: 48,
         padding: 5,
         paddingRight:0,
         width: 305,
         flexDirection: "row",
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         backgroundColor: '#fff',
         alignSelf: 'center', 
         borderWidth: 0,
         borderRadius: 25,
-        margin:10,
         elevation: 45,
+        margin:10,
         borderColor: 'black',
     },
     input: {
         height: 60, 
         padding: 5,
+        width: "100%"
     },
     image:{
       resizeMode: 'contain',
