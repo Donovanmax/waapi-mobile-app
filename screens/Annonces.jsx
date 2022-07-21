@@ -21,8 +21,9 @@ const Annonces = () => {
                 style={{
                   position: "absolute",
                   zIndex: 20,
+                  padding:10,
 
-                  backgroundColor: "#fff",
+                  backgroundColor: "#3D7DFF",
                   width: "100%",
 
                   maxWidth: width 
@@ -32,12 +33,13 @@ const Annonces = () => {
                   style={{
                     fontSize: 25,
                     fontWeight: "bold",
-                    fontStyle: "italic"
+                    fontStyle: "italic",
+                    color: "#fff",
                   }}
                 >
                   {annonce.title}
                 </Text>
-                <Text style={{ fontSize: 11 }}>{annonce.description}</Text>
+                <Text style={{ fontSize: 11, color: "white" }}>{annonce.description}</Text>
               </View>
               <View style={{ width: width, height: height }}>
                 <Image

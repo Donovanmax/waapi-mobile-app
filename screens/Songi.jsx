@@ -45,12 +45,12 @@ const Songi = () => {
             flexDirection: "row-reverse",
             padding: 8,
             justifyContent: "space-between",
-            backgroundColor: "#fff"
+            backgroundColor: "#3D7DFF"
           }}
         >
           <View style={{flexDirection: "row-reverse", justifyContent: "center", alignItems: "center" }}>
             <TouchableOpacity style={{marginLeft:12}}>
-              <Icon name="magnify" size={28} color="#3D7DFF" />
+              <Icon name="magnify" size={28} color="#fFF" />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
@@ -69,14 +69,14 @@ const Songi = () => {
               fontWeight: "bold",
               fontSize: 22,
               textTransform: "uppercase",
-              color: "#3D7DFF"
+              color: "#FFFFFF"
             }}
           >
             waapi
           </Text>
          
         </View>
-        <Divider width={1} color={"#3D7DFF"}/>
+        <Divider width={1} color={"#111"}/>
         <View style={{ flex: 2 }}>
           <ScrollView>
             {songisongi.map((songi, id) => {

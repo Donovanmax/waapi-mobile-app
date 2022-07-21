@@ -9,24 +9,23 @@ import {
 import React from "react";
 import { dummy } from "../data";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { useNavigation } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/core";
 
-import MenuItems from "./MenuItems";
-import Zoom from "./Zoom";
-import OrderPlaced from "./OrderPlaced";
+
 
 const Base = () => {
-  const navigation = useNavigation()
-  const Stack = createStackNavigator();
+
+  const navigation = useNavigation();
+
   return (
     <View style={{ width: width }}>
       {dummy.map((resto, id) => {
         return (
           <View key={id} style={styles.Images}>
             <TouchableOpacity activeOpacity={0.6} style={{ width: "100%" }}
+            onPress={() => navigation.navigate("Zoom", { name:resto.name, 
+            data:resto.carousel})}>
             
-            >
               <Image
                 source={resto.image}
                 style={{
@@ -65,11 +64,7 @@ const Base = () => {
           </View>
         );
       })}
-      <Stack.Navigator>
-      <Stack.Screen name="Menu" component={MenuItems} />
-      <Stack.Screen name="Zoom" component={Zoom} />
-      <Stack.Screen name="orderPlaced" component={OrderPlaced} />
-    </Stack.Navigator>
+      
     </View>
 
   );

@@ -12,7 +12,7 @@ import Zoom1 from "./Zoom1";
 import React from "react";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { createStackNavigator } from "@react-navigation/stack";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/core";
 import Zoom2 from "./Zoom2";
 import Maps from "./Maps";
 import Commentaires from "./Commentaires";
@@ -176,7 +176,7 @@ const Zoom = () => {
       </View>
       <View
         style={{
-          backgroundColor: '#eee',
+          backgroundColor: 'red',
           flex: 0.7
         }}
       >
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     width: dotSize,
     height: dotSize,
     borderRadius: dotSize,
-    backgroundColor: '#ccc',
+    backgroundColor: 'red',
     position: "absolute"
   },
 
