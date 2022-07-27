@@ -1,18 +1,21 @@
-import { View, Text, StatusBar, ScrollView, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StatusBar, StyleSheet } from "react-native";
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Base from "../Resto/Base";
 
 const Home = () => {
   return (
+    <>
+     
     <View
       style={{
         flex: 1,
-        // marginTop: StatusBar.currentHeight,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+     
       }}
     >
-      <StatusBar backgroundColor="#3D7DFF" barStyle="ligth-content" />
+     
+ 
       <View style={{ alignItems: "center" }}>
         <Sidebar />
         </View>
@@ -24,6 +27,7 @@ const Home = () => {
         </ScrollView>
         </View>
     </View>
+    </>
 
   );
 };

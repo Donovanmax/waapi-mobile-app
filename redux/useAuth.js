@@ -5,7 +5,7 @@ const AuthContext = createContext({});
 
 
 export const AuthProvider = ({ children }) => {
-    const [cred, setCred] =  useState(null)
+    const [cred, setCred] =  useState('roan')
   return (
     <AuthContext.Provider value={{ user: cred, setcred:setCred}}>
       {children}

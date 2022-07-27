@@ -11,7 +11,8 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import MenuItems from "./MenuItems";
 import { useSelector } from "react-redux";
 import OrdersScreen from "./OrdersScreen";
-
+import {db, auth} from "../firebase";
+import firebase from 'firebase/compat/app';
 
 
 const Zoom1 = () => {
@@ -31,7 +32,6 @@ const Zoom1 = () => {
 const Button = () => {
   const navigation = useNavigation();
   const addOrdersToFirebase = () => {
-    // const db = firestore.firestore();
     db.collection("orders").add({
       plats: items,
       restaurant: restoName,
@@ -114,7 +114,7 @@ const Button = () => {
         >
           <Text style={styles.btnText}>Commander</Text>
           <Text
-            style={{ color: "white", fontSize: 16,  }}
+            style={{ color: "white", fontSize: 16, color: "#111" }}
           >
             {total} Fcfa
           </Text>
@@ -130,8 +130,10 @@ const styles = StyleSheet.create({
   BtnCommander: {
     position: "absolute",
     width: "60%",
-    backgroundColor: '#eee',
-    top: 370,
+    backgroundColor: '#fff',
+    borderColor: 'red',
+    borderWidth: 1,
+    top: "100%",
     padding: 7,
     borderRadius: 15,
     flexDirection: "row",
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 14,
-    color: "white",
+    color: "black",
     marginRight: 12
   },
   modalContainer: {

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import BouncyCheckBox from "react-native-bouncy-checkbox";
 import { Divider } from "react-native-elements";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const foods = [
   {
@@ -38,9 +38,10 @@ const foods = [
 const styles = StyleSheet.create({
   menuItemStyle: {
     flexDirection: "row",
-    margin: 10,
+    margin: 5,
     backgroundColor: "#fff",
-    justifyContent: "space-evenly",
+    alignItems: 'center',
+    justifyContent: "space-between",
     padding: 4
   },
   titlteStyle: {
@@ -52,20 +53,20 @@ const styles = StyleSheet.create({
 const MenuItems = ({ name }) => {
 
 
-  // const cartItems = useSelector(
-  //   (state) => state.cartReducer.selectedItems.items
-  // );
+  const cartItems = useSelector(
+    (state) => state.cartReducer.selectedItems.items
+  );
 
-  // const isFoodIncart = (plat, cartItems) =>
-  //   Boolean(cartItems.find((item) => item.title === plat.title));
+  const isFoodIncart = (plat, cartItems) =>
+    Boolean(cartItems.find((item) => item.title === plat.title));
 
-  // const nameM = name;
-  // const dispatch = useDispatch();
-  // const selectItem = (item, checkboxValue) =>
-  //   dispatch({
-  //     type: "ADD_TO_CART",
-  //     payload: { ...item, restoName: nameM, checkboxValue: checkboxValue }
-  //   });
+  const nameM = name;
+  const dispatch = useDispatch();
+  const selectItem = (item, checkboxValue) =>
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: { ...item, restoName: nameM, checkboxValue: checkboxValue }
+    });
   return (
     <>
       <View>
@@ -78,16 +79,18 @@ const MenuItems = ({ name }) => {
               }}
             >
               <View style={styles.menuItemStyle}>
+                <View style={{flexDirection: "row", justifyContent: "center"}}>
                 <BouncyCheckBox
                   iconStyle={{
                     borderColor: "gray",
                     borderRadius: 25
                   }}
                   fillColor={"lightgreen"}
-                  // isChecked={isFoodIncart(plat, cartItems)}
-                  // onPress={(checkboxValue) => selectItem(plat, checkboxValue)}
+                  isChecked={isFoodIncart(plat, cartItems)}
+                  onPress={(checkboxValue) => selectItem(plat, checkboxValue)}
                 />
                 <FoodInfo plat={plat} />
+                </View>
                 <FoodImage plat={plat} />
               </View>
               <Divider
@@ -109,7 +112,7 @@ const MenuItems = ({ name }) => {
 
 const FoodInfo = (props) => (
   <View
-    style={{ maxWidth: 200, justifyContent: "space-evenly", marginRight: 15 }}
+    style={{ maxWidth: 190, justifyContent: "space-evenly", marginRight: 15 }}
   >
     <Text
       style={{
@@ -134,7 +137,8 @@ const FoodInfo = (props) => (
     </Text>
     <Text
       style={{
-        fontSize: 13
+        fontSize: 13,
+        fontWeight: "700",
       }}
     >
       {props.plat.price} Fcfa
@@ -143,10 +147,10 @@ const FoodInfo = (props) => (
 );
 
 const FoodImage = (props) => (
-  <View style={{ marginRight: 1 }}>
+  <View>
     <Image
       source={props.plat.image}
-      //resizeMode={'cover'}
+      resizeMode={'contain'}
       style={{ width: 80, height: 80, borderRadius: 7 }}
     />
   </View>

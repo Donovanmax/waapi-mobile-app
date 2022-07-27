@@ -9,7 +9,7 @@ const OrdersScreen = ({ item }) => {
         justifyContent: "space-between",
         padding: 20,
         borderBottomWidth: 1,
-        borderBottomColor: "#999"
+        borderBottomColor: "#111"
       }}
     >
       <Text

@@ -10,6 +10,7 @@ import React from "react";
 import { dummy } from "../data";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/core";
+import { StatusBar } from "react-native";
 
 
 
@@ -64,7 +65,8 @@ const Base = () => {
           </View>
         );
       })}
-      
+      <StatusBar backgroundColor="#3D7DFF"  />
+    
     </View>
 
   );

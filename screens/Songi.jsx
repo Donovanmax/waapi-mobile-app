@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   Dimensions,
+  StatusBar,
   ScrollView,
   Modal
 } from "react-native";
@@ -19,7 +20,9 @@ const Songi = () => {
   const [modalOpened, setModalopen] = React.useState(false);
   return (
     <>
+   
       <View>
+      
         <Modal visible={modalOpened}>
           <Icon
             name="close"
@@ -36,7 +39,8 @@ const Songi = () => {
           flexDirection: "column",
           justifyContent: "space-between",
           aignItems: "center",
-          backgroundColor: "#ffffff"
+          backgroundColor: "#ffffff",
+
         }}
       >
         <View
@@ -68,11 +72,11 @@ const Songi = () => {
             style={{
               fontWeight: "bold",
               fontSize: 22,
-              textTransform: "uppercase",
-              color: "#FFFFFF"
+              color: "#FFFFFF",
+              fontStyle: "italic"
             }}
           >
-            waapi
+            Waapi
           </Text>
          
         </View>
@@ -192,6 +196,7 @@ const Songi = () => {
             <Icon name="plus" size={35} color="#ffffff" />
           </TouchableOpacity>
         </View>
+        
       </View>
     </>
   );

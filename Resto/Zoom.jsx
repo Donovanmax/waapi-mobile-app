@@ -33,11 +33,12 @@ const Zoom = () => {
   const [activeStack, setActiveStack] = React.useState(1);
 
   return (
-    <View style={{ flex: 1 }}>
-      <StatusBar hidden backgroundColor={"transparent"} />
+    <View style={{ flex: 1, zIndex:-1,  }}>
+     
       <View style={{ flex: 0.3 }}>
         <View
-          style={{ top: 30, justifyContent: "center", alignItems: "center" }}
+          style={{ top: 25, justifyContent: "center", alignItems: "center", 
+          }}
         >
           <TouchableOpacity
             activeOpacity={1}
@@ -237,6 +238,7 @@ const Zoom = () => {
           />
         </Stack.Navigator>
       </View>
+    
     </View>
   );
 };
